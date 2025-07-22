@@ -1,0 +1,14 @@
+[package]
+name = "binlist_rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Junaid Rahman <junaid.cloud2@gmail.com>"]
+description = "Rust wrapper for Binlist API"
+license = "MIT"
+repository = "https://github.com/Junaid433/binlist_rs"
+
+[dependencies]
+tokio = { version = "1.33", features = ["full"] }
+reqwest = { version = "0.11", features = ["json", "socks", "rustls-tls"] }
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "1.0"
