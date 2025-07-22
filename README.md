@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/crates/l/binlist_rs)
 ![Crates.io](https://img.shields.io/crates/v/binlist_rs)
-![Build](https://img.shields.io/github/actions/workflow/status/Junaid433/binlist_rs/ci.yml?branch=main)
+![Build](https://img.shields.io/github/actions/workflow/status/Junaid433/binlist_rs/ci.yml?branch=master)
 
 **binlist_rs** is a lightweight and async Rust wrapper for the Binlist API (https://binlist.net/). 
 It allows you to perform BIN lookups with full support for proxies, custom error types, and structured JSON responses.
