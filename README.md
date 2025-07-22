@@ -21,7 +21,7 @@ Add this to your Cargo.toml:
 
 ```toml
 [dependencies]
-binlist_rs = "0.1.0"
+binlist_rs = "0.1.1"
 ````
 
 > Replace version with the latest from [https://crates.io/crates/binlist\_rs](https://crates.io/crates/binlist_rs)
