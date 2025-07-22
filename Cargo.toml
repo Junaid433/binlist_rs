@@ -1,6 +1,6 @@
 [package]
 name = "binlist_rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Junaid Rahman <junaid.cloud2@gmail.com>"]
 description = "Rust wrapper for Binlist API"
