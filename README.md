@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/crates/l/binlist_rs)
 ![Crates.io](https://img.shields.io/crates/v/binlist_rs)
-![Build](https://img.shields.io/github/actions/workflow/status/yourusername/binlist_rs/ci.yml?branch=main)
+![Build](https://img.shields.io/github/actions/workflow/status/Junaid433/binlist_rs/ci.yml?branch=main)
 
 **binlist_rs** is a lightweight and async Rust wrapper for the Binlist API (https://binlist.net/). 
 It allows you to perform BIN lookups with full support for proxies, custom error types, and structured JSON responses.
@@ -34,17 +34,17 @@ use binlist_rs::BinLookup;
 #[tokio::main]
 async fn main() {
     let bin = "531462";
-    let proxy = Some("socks5://127.0.0.1:9050");
 
-    let mut client = BinLookup::new();
-    let result = client.lookup(bin, proxy.as_deref()).await;
+    let mut lookup = BinLookup::new();
+    let result = lookup.lookup(bin, None).await;
 
-    match result {
-        Ok(info) => {
-            println!("Scheme: {:?}", info.scheme);
-            println!("Country: {:?}", info.country.map(|c| c.name));
+    if let Ok(info) = result {
+        println!("Scheme: {}", info.scheme.unwrap_or("Unknown".into()));
+        if let Some(country) = info.country {
+            println!("Country: {}", country.name.unwrap_or("Unknown".into()));
         }
-        Err(err) => eprintln!("Error: {}", err),
+    } else {
+        println!("Failed to look up BIN.");
     }
 }
 ```
@@ -57,9 +57,9 @@ async fn main() {
 
 ### Available Fields in Response:
 
-* `scheme`, `brand`, `card_type`, `prepaid`
+* `scheme`, `brand`, `type`, `prepaid`
 * `country`: name, emoji, currency, coordinates
-* `bank`: name, phone, url
+* `bank`: name
 
 ## 🛠 Error Handling
 
@@ -84,7 +84,7 @@ let proxy = Some("socks5://127.0.0.1:9050");
 
 ## 📄 License
 
-MIT © 2025 Junaid HACKUR ([https://github.com/junaid433](https://github.com/junaid433))
+MIT © 2025 Junaid Rahman ([https://github.com/junaid433](https://github.com/junaid433))
 
 ## 🧠 Acknowledgments
 
